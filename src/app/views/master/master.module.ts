@@ -1,12 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-
-import { MasterRoutingModule } from './master-routing.module';
-
-import { DocsComponentsModule } from '@docs-components/docs-components.module';
-import { IconModule } from '@coreui/icons-angular';
 import { ReactiveFormsModule } from '@angular/forms';
 
+// CoreUI Modules
 import {
     AccordionModule,
     BadgeModule,
@@ -32,6 +28,16 @@ import {
     UtilitiesModule
 } from '@coreui/angular';
 
+import { IconModule } from '@coreui/icons-angular';
+
+// utils
+import { DocsComponentsModule } from '@docs-components/docs-components.module';
+
+// views
+import { MasterBankComponent } from './master-bank/master-bank.component';
+
+// Components Routing
+import { MasterRoutingModule } from './master-routing.module';
 
 @NgModule({
     imports: [
@@ -62,9 +68,10 @@ import {
         PaginationModule,
         PopoverModule,
         TableModule,
-        DocsComponentsModule,
+        DocsComponentsModule
     ],
-    declarations: []
+    declarations: [
+        MasterBankComponent
+    ],
 })
-export class MasterModule { }
-
+export class MasterModule {  }
