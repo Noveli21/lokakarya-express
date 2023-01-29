@@ -4,27 +4,119 @@
             <strong>Master Bank</strong>
         </c-card-header>
         <c-card-body>
+            <div class="row g-3" style="display: flex; justify-content: end;">
+                <div class="col-auto mb-3">
+                    <input cFormControl id="inputPassword2" placeholder="Search No. Rek" type="text"
+                        [(ngModel)]="valSearch" />
+                </div>
+                <div class="col-auto">
+                    <button cButton class="mb-3" type="submit" (click)="onSeacrh()">
+                        Search
+                    </button>
+                </div>
+            </div>
+
             <!-- <app-docs-example href="components/table"> -->
-                <table cTable>
-                    <thead>
-                        <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Norek</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">No. Telp</th>
-                            <th scope="col">Saldo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let data of masterBank; index as i">
-                            <th scope="row">{{i+1}}</th>
-                            <td>{{data?.norek}}</td>
-                            <td>{{data?.nama}}</td>
-                            <td>{{ data.notelp }}</td>
-                            <td>Rp. {{ data.saldo }}</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <table cTable>
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Norek</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Alamat</th>
+                        <th scope="col">No. Telp</th>
+                        <th scope="col">Saldo</th>
+                        <th scope="col" style="width: 280px;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of masterBank; index as i">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{data?.norek}}</td>
+                        <td>{{data?.nama}}</td>
+                        <td>{{data?.alamat}}</td>
+                        <td>{{ data.notelp }}</td>
+                        <td>Rp. {{ data.saldo }}</td>
+                        <td>
+                            <c-row class="align-items-center mb-3">
+                                <c-col class="ml-7 mt-2" xs="5">
+                                    <button color="success" cButton class="me-1" shape="rounded-pill"
+                                        (click)="toggleEdit(data)">
+                                        <svg cIcon class="me-2" name="cil-pencil"></svg>
+                                        Edit
+                                    </button>
+                                </c-col>
+                                <c-col>
+                                    <button color="danger" shape="rounded-pill" cButton class="me-1"
+                                        (click)="toggleDelete(data)">
+                                        <svg cIcon class="me-2" name="cil-trash"></svg>
+                                        Delete
+                                    </button>
+                                </c-col>
+                            </c-row>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button color="primary" cButton class="me-1" (click)="toggleAdd()">
+                <svg cIcon class="me-2" name="cil-bell"></svg>
+                Add
+            </button>
+            <c-modal id="liveDemoModal" [visible]="openAdd" (visibleChange)="handleAddChange($event)">
+                <c-modal-header>
+                    <h5 cModalTitle>Form {{ label }} Bank</h5>
+                    <button (click)="toggleAdd()" cButtonClose></button>
+                </c-modal-header>
+                <c-modal-body>
+                    <c-row class="mb-3">
+                        <label cLabel="col" class="col-sm-2" for="norek">
+                            No. Rek
+                        </label>
+                        <c-col [sm]="10">
+                            <input cFormControl id="norek" type="number" maxlength="7" [(ngModel)]="dataPost.norek" />
+                        </c-col>
+                    </c-row>
+                    <c-row class="mb-3">
+                        <label cLabel="col" class="col-sm-2" for="name">
+                            Nama
+                        </label>
+                        <c-col [sm]="10">
+                            <input cFormControl id="name" type="text" [(ngModel)]="dataPost.nama" />
+                        </c-col>
+                    </c-row>
+                    <c-row class="mb-3">
+                        <label cLabel="col" class="col-sm-2" for="name">
+                            Alamat
+                        </label>
+                        <c-col [sm]="10">
+                            <textarea cFormControl id="exampleFormControlTextarea1" rows="3"
+                                [(ngModel)]="dataPost.alamat"></textarea>
+                        </c-col>
+                    </c-row>
+                    <c-row class="mb-3">
+                        <label cLabel="col" class="col-sm-2" for="saldo">
+                            No. Tlp
+                        </label>
+                        <c-col [sm]="10">
+                            <input cFormControl id="saldo" type="number" [(ngModel)]="dataPost.notelp" />
+                        </c-col>
+                    </c-row>
+                    <c-row class="mb-3">
+                        <label cLabel="col" class="col-sm-2" for="saldo">
+                            Saldo
+                        </label>
+                        <c-col [sm]="10">
+                            <input cFormControl id="saldo" type="number" [(ngModel)]="dataPost.saldo" />
+                        </c-col>
+                    </c-row>
+                </c-modal-body>
+                <c-modal-footer>
+                    <button (click)="toggleAdd()" cButton color="secondary">
+                        Cancel
+                    </button>
+                    <button cButton color="primary" (click)="onSubmit()">Save</button>
+                </c-modal-footer>
+            </c-modal>
             <!-- </app-docs-example> -->
         </c-card-body>
     </c-card>

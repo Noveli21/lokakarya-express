@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // CoreUI Modules
 import {
@@ -25,7 +25,8 @@ import {
     TableModule,
     TabsModule,
     TooltipModule,
-    UtilitiesModule
+    UtilitiesModule,
+    ModalModule
 } from '@coreui/angular';
 
 import { IconModule } from '@coreui/icons-angular';
@@ -68,7 +69,9 @@ import { MasterRoutingModule } from './master-routing.module';
         PaginationModule,
         PopoverModule,
         TableModule,
-        DocsComponentsModule
+        DocsComponentsModule,
+        ModalModule,
+        FormsModule
     ],
     declarations: [
         MasterBankComponent

@@ -39,6 +39,8 @@
     "rxjs": "~7.5.0",
     "sequelize": "^6.28.0",
     "sequelizer": "^1.1.4",
+    "sweetalert2": "^11.7.1",
+    "terser": "^5.16.1",
     "tslib": "^2.4.1",
     "zone.js": "~0.12.0"
   },

@@ -11,8 +11,20 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  getMasterBank() {
-    return this.http.get(`${this.base_url}/masterBank/getMasterBank`)
+  getMasterBank(params: any) {
+    return this.http.get(`${this.base_url}/masterBank/getMasterBank`, { params: params })
+  }
+
+  createMasterBank(body: any) {
+    return this.http.post(`${this.base_url}/masterBank/insertMasterBank`, body)
+  }
+
+  updateMasterBank(body: any) {
+    return this.http.put(`${this.base_url}/masterBank/updateMasterBank`, body)
+  }
+
+  deleteMasterBank(body: any) {
+    return this.http.delete(`${this.base_url}/masterBank/deleteMasterBank`, { body: body})
   }
 
 }
