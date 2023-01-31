@@ -19,7 +19,34 @@ export const navItems: INavData[] = [
         url: '/master/master-pelanggan'
       }
     ]
-  },
+  }, 
+  {
+    name: 'Transactions',
+    url: '/transactions',
+    iconComponent: { name: 'cil-calculator' },
+    children: [
+      {
+        name: 'Cek Saldo',
+        url: '/transactions/cek-saldo'
+      },
+      {
+        name: 'Setor Tunai',
+        url: '/transactions/setor-tunai'
+      },
+      {
+        name: 'Tarik Tunai',
+        url: '/transactions/tarik-tunai'
+      },
+      {
+        name: 'Transfer',
+        url: '/transactions/transfer'
+      },
+      {
+        name: 'Bayar telepon',
+        url: '/transactions/bayar telepon'
+      }
+    ]
+  }
   // {
   //   name: 'Dashboard',
   //   url: '/dashboard',

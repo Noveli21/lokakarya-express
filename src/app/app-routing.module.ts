@@ -79,6 +79,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('./views/master/master.module').then((m) => m.MasterModule),
       },
+      {
+        path: 'transactions',
+        loadChildren: () =>
+          import('./views/transactions/transactions.module').then((m) => m.TransactionsModule),
+      },
     ],
   },
   {
